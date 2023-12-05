@@ -1,0 +1,25 @@
+{
+    "name": "pallycon/token-sample-php",
+    "description": "PallyCon token sample by php",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4":{
+          "PallyCon\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4":{
+            "Test\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "PallyCon",
+            "email": "server@inka.co.kr"
+        }
+    ],
+    "require": {}
+}
