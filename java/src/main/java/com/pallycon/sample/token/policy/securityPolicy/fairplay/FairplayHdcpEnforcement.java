@@ -7,7 +7,7 @@ public enum FairplayHdcpEnforcement {
 
     HDCP_NONE("HDCP_NONE", -1),
     HDCP_TYPE_0("HDCP_TYPE_0", 0),
-    HDCP_TYPE_2("HDCP_TYPE_2", 1);
+    HDCP_TYPE_1("HDCP_TYPE_1", 1);
 
     private String type;
     private int value;

@@ -6,6 +6,7 @@ import com.pallycon.sample.token.policy.playbackPolicy.AllowedTrackTypes;
 import com.pallycon.sample.token.policy.securityPolicy.fairplay.FairplayHdcpEnforcement;
 import com.pallycon.sample.token.policy.securityPolicy.playready.DigitalVideoProtection;
 import com.pallycon.sample.token.policy.securityPolicy.playready.PlayreadySecurityLevel;
+import com.pallycon.sample.token.policy.securityPolicy.widevine.HdcpSrmRule;
 import com.pallycon.sample.token.policy.securityPolicy.widevine.RequiredHdcpVersion;
 import com.pallycon.sample.token.policy.securityPolicy.widevine.WidevineSecurityLevel;
 import com.pallycon.sample.exception.PallyConTokenException;
@@ -34,7 +35,8 @@ public class PolicyTest {
                 .trackType(TrackType.ALL)
                 .widevine(new SecurityPolicyWidevine()
                         .securityLevel(WidevineSecurityLevel.SW_SECURE_CRYPTO)
-                        .requiredHdcpVersion(RequiredHdcpVersion.HDCP_NONE))
+                        .requiredHdcpVersion(RequiredHdcpVersion.HDCP_NONE)
+                        .hdcpSrmRule(HdcpSrmRule.HDCP_SRM_RULE_NONE))
                 .playready(new SecurityPolicyPlayready()
                         .securityLevel(PlayreadySecurityLevel.LEVEL_150)
                         .digitalVideoProtection(DigitalVideoProtection.LEVEL_100))
@@ -48,6 +50,7 @@ public class PolicyTest {
                     "\"widevine\":{" +
                     "\"security_level\":1," +
                     "\"required_hdcp_version\":\"HDCP_NONE\"," +
+                    "\"hdcp_srm_rule\":\"HDCP_SRM_RULE_NONE\"," +
                     "\"override_device_revocation\":false," +
                     "\"enable_license_cipher\":false" +
                     "}," +
@@ -64,7 +67,7 @@ public class PolicyTest {
                     "\"policy_version\":2," +
                     "\"playback_policy\":{" +
                         "\"persistent\":false,\"license_duration\":60," +
-                        "\"allowed_track_types\":\"ALL\"," +
+                        "\"allowed_track_types\":\"ALL\"" +
                     "}," +
                     "\"security_policy\":[" +
                         securityStr +

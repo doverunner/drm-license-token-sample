@@ -1,5 +1,5 @@
 <%
-Class SecurityPolicyFairplay
+Class SecurityPolicyNcg
     private m_allowMobileAbnormalDevice
     private m_allowExternalDisplay
     private m_controlHdcp

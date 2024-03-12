@@ -2,6 +2,8 @@
 Class PlaybackPolicy
     private m_persistent
     private m_licenseDuration
+    private m_rentalDuration
+    private m_playbackDuration
     private m_expireDate
     private m_allowedTrackTypes
     private m_maxStreamPerUser
@@ -36,6 +38,40 @@ Class PlaybackPolicy
             GetLicenseDuration = 0
         Else
             GetLicenseDuration = m_licenseDuration
+        End If
+    End Function
+
+    Public Sub SetRentalDuration(i_rentalDuration)
+        If VarType(i_rentalDuration) = 2 OR VarType(i_rentalDuration) = 3 then
+            m_rentalDuration = i_rentalDuration
+        Else
+            call Err.Raise(1010, "PlaybackPolicy", "The duration should be number")
+        End If
+    End Sub
+
+    Public Function GetRentalDuration()
+
+        If IsEmpty(m_rentalDuration) then
+            GetRentalDuration = 0
+        Else
+            GetRentalDuration = m_rentalDuration
+        End If
+    End Function
+
+    Public Sub SetPlaybackDuration(i_playbackDuration)
+        If VarType(i_playbackDuration) = 2 OR VarType(i_playbackDuration) = 3 then
+            m_playbackDuration = i_playbackDuration
+        Else
+            call Err.Raise(1010, "PlaybackPolicy", "The duration should be number")
+        End If
+    End Sub
+
+    Public Function GetPlaybackDuration()
+
+        If IsEmpty(m_playbackDuration) then
+            GetPlaybackDuration = 0
+        Else
+            GetPlaybackDuration = m_playbackDuration
         End If
     End Function
 
@@ -98,6 +134,14 @@ Class PlaybackPolicy
 
         If Not IsEmpty(m_licenseDuration) Then
             s_jsonResult = s_jsonResult & ",""license_duration"":" & m_licenseDuration
+        End If
+
+        If Not IsEmpty(m_rentalDuration) Then
+            s_jsonResult = s_jsonResult & ",""rental_duration"":" & m_rentalDuration
+        End If
+
+        If Not IsEmpty(m_playbackDuration) Then
+            s_jsonResult = s_jsonResult & ",""playback_duration"":" & m_playbackDuration
         End If
 
         If Not IsEmpty(m_expireDate) Then

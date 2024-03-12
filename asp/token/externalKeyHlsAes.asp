@@ -29,7 +29,7 @@ Class ExternalKeyHlsAes
     End Function
 
     Public Sub SetTrackType(s_trackType)
-        m_trackType = s_trackType;
+        m_trackType = s_trackType
     End Sub
 
     Public Function GetTrackType()

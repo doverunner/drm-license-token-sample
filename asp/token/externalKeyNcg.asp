@@ -27,7 +27,7 @@ Class ExternalKeyNcg
         exReg.IgnoreCase = True
         Set match = exReg.Execute(s_target)
 
-        CheckHex32 = match.count
+        CheckHex64 = match.count
     End Function
     
 End Class

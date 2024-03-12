@@ -66,7 +66,7 @@ Class PolicyRequest
             If s_jsonResult <> "{" Then
                 s_jsonResult = s_jsonResult & ","
             End If
-            s_jsonResult = s_jsonResult & """externalkey"":" & m_externalKey.ToJsonString
+            s_jsonResult = s_jsonResult & """external_key"":" & m_externalKey.ToJsonString
         End If
         s_jsonResult = s_jsonResult & "}"
 
