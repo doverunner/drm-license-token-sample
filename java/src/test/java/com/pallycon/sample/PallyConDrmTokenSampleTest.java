@@ -9,6 +9,7 @@ import com.pallycon.sample.exception.PallyConTokenException;
 import com.pallycon.sample.token.policy.securityPolicy.playready.AnalogVideoProtection;
 import com.pallycon.sample.token.policy.securityPolicy.playready.DigitalVideoProtection;
 import com.pallycon.sample.token.policy.securityPolicy.playready.PlayreadySecurityLevel;
+import com.pallycon.sample.token.policy.securityPolicy.widevine.HdcpSrmRule;
 import com.pallycon.sample.token.policy.securityPolicy.widevine.RequiredCgmsFlags;
 import com.pallycon.sample.token.policy.securityPolicy.widevine.RequiredHdcpVersion;
 import com.pallycon.sample.token.policy.securityPolicy.widevine.WidevineSecurityLevel;
@@ -68,6 +69,7 @@ public class PallyConDrmTokenSampleTest {
                 .securityLevel(WidevineSecurityLevel.SW_SECURE_CRYPTO)
                 .requiredHdcpVersion(RequiredHdcpVersion.HDCP_NONE)
                 .requiredCgmsFlags(RequiredCgmsFlags.CGMS_NONE)
+                .hdcpSrmRule(HdcpSrmRule.HDCP_SRM_RULE_NONE)
                 .overrideDeviceRevocation(true);
         SecurityPolicyFairplay fairplayForAll = new SecurityPolicyFairplay()
                 .hdcpEnforcement(FairplayHdcpEnforcement.HDCP_NONE)
