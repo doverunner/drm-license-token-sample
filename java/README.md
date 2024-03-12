@@ -4,7 +4,7 @@
 
 ### IDE
 
-- JAVA JDK amazon-corretto-8  (jdk1.8.0_232)
+- JAVA JDK amazon-corretto-21  (jdK 21.0.2)
 - maven / intellij
 
 
