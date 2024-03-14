@@ -64,7 +64,7 @@ Class SecurityPolicyPlayready
 
     Public Sub SetRequireHdcpType1(i_requireHdcpType1)
         If Not IsEmpty(i_requireHdcpType1) Then
-            If VarType(i_requireHdcpType1) = 11
+            If VarType(i_requireHdcpType1) = 11 Then
                 m_requireHdcpType1 = i_requireHdcpType1
             Else
                 call Err.Raise(1032, "SecurityPolicyPlayready", " The requireHdcpType1 should be boolean")
