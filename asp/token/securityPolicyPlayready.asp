@@ -108,7 +108,7 @@ Class SecurityPolicyPlayready
             If s_jsonResult <> "{" Then
             s_jsonResult = s_jsonResult & ","
             End If
-            s_jsonResult = s_jsonResult & """require_hdcp_type1"":" & Lcase(Cstr(m_requireHdcpType1))
+            s_jsonResult = s_jsonResult & """require_hdcp_type_1"":" & Lcase(Cstr(m_requireHdcpType1))
         End If
 
         s_jsonResult = s_jsonResult & "}"
