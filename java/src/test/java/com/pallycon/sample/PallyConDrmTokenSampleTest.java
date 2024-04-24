@@ -146,11 +146,7 @@ public class PallyConDrmTokenSampleTest {
             buildPolicy();
 
             // if want to replace more fields, see #makeTokenForFairplay.
-            this.tokenForWidevine = new PallyConDrmTokenClient()
-                    .widevine()
-                    .userId("<tester-user>") // substitute if want
-                    .cId("<Content ID>") // substitute if want
-                    .policy(policy);
+            this.tokenForWidevine = new PallyConDrmTokenClient().widevine().policy(policy);
 
             // generate token.
             this.licenseTokenForWidevine = this.tokenForWidevine.execute();
@@ -173,14 +169,7 @@ public class PallyConDrmTokenSampleTest {
             // build policy.
             buildPolicy();
 
-            this.tokenForFairplay = new PallyConDrmTokenClient()
-                    .fairplay()
-                    .siteKey("<Site Key>") // substitute if want
-                    .accessKey("<Access Key>") // substitute if want
-                    .siteId("<Site ID>") // substitute if want
-                    .userId("<tester-user>") // substitute if want
-                    .cId("<Content ID>") // substitute if want
-                    .policy(policy);
+            this.tokenForFairplay = new PallyConDrmTokenClient().fairplay().policy(policy);
 
             // generate token.
             this.licenseTokenForFairplay = this.tokenForFairplay.execute();
@@ -205,14 +194,7 @@ public class PallyConDrmTokenSampleTest {
             // build policy.
             buildPolicy();
 
-            this.tokenForNCG = new PallyConDrmTokenClient()
-                    .ncg()
-                    .siteKey("<Site Key>") // substitute if want
-                    .accessKey("<Access Key>") // substitute if want
-                    .siteId("<Site ID>") // substitute if want
-                    .userId("<tester-user>") // substitute if want
-                    .cId("<Content ID>") // substitute if want
-                    .policy(policy);
+            this.tokenForNCG = new PallyConDrmTokenClient().ncg().policy(policy);
 
             // generate token.
             this.licenseTokenForNCG = this.tokenForNCG.execute();
