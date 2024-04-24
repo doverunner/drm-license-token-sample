@@ -5,7 +5,7 @@ use PallyCon\Exception\PallyConTokenException;
 
 class HlsAesRequest
 {
-    private $_trackType;
+    private $_trackType = "ALL";
     private $_key;
     private $_iv;
     private $_keyId;
@@ -18,7 +18,7 @@ class HlsAesRequest
      * @param $keyId
      * @throws PallyConTokenException
      */
-    public function __construct($trackType="ALL", $key, $iv, $keyId)
+    public function __construct($trackType, $keyId, $key, $iv)
     {
         if(!$this->checkHex32($key)){
             throw new PallyConTokenException(1044);
