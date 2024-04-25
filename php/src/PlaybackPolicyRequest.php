@@ -41,7 +41,7 @@ class PlaybackPolicyRequest {
             }
         }
         if(!empty($expireDate)) {
-            if(preg_match('/[0-9]{4}-[0,1][0-9]-[0-5][0-9]T[0-2][0-3]:[0-5][0-9]:[0-5][0-9]Z/', $expireDate)){
+            if(preg_match('/[0-9]{4}-[0,1][0-9]-[0-5][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]Z/', $expireDate)){
                 $this->_expireDate = $expireDate;
             }else{
                 throw new PallyConTokenException(1011);
