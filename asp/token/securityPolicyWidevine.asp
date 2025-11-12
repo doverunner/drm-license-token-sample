@@ -82,7 +82,7 @@ Class SecurityPolicyWidevine
         If VarType(b_enableLicenseCipher) = 11 then
             m_enableLicenseCipher = b_enableLicenseCipher
         Else
-            call Err.Raise(1024, "SecurityPolicyWidevine", "The enable_license_cipher should be boolean")
+            call Err.Raise(1054, "SecurityPolicyWidevine", "The enable_license_cipher should be boolean")
         End If
     End Sub
 

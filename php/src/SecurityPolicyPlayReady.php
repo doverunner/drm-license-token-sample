@@ -12,13 +12,15 @@ class SecurityPolicyPlayReady
     public $_analogVideoProtectionLevel;
     public $_digitalAudioProtectionLevel;
     public $_requireHdcpType1;
+    public $_enableLicenseCipher;
 
 
     public function __construct($securityLevel=150
                                     , $digitalVideoProtectionLevel=null
                                     , $analogVideoProtectionLevel=null
                                     , $digitalAudioProtectionLevel=null
-                                    , $requireHdcpType1= null)
+                                    , $requireHdcpType1= null
+                                    , $enableLicenseCipher=false)
     {
         if(is_numeric($securityLevel)){
             $this->_securityLevel = $securityLevel;
@@ -53,6 +55,13 @@ class SecurityPolicyPlayReady
                 throw new PallyConTokenException(1032);
             }
         }
+        if(!empty($enableLicenseCipher)) {
+            if (is_bool($enableLicenseCipher)) {
+                $this->_enableLicenseCipher = $enableLicenseCipher;
+            } else {
+                throw new PallyConTokenException(1056);
+            }
+        }
     }
 
     public function toArray()
@@ -72,6 +81,9 @@ class SecurityPolicyPlayReady
         }
         if (isset($this->_requireHdcpType1)) {
             $arr["require_hdcp_type1"] = $this->_requireHdcpType1;
+        }
+        if (isset($this->_enableLicenseCipher)) {
+            $arr["enable_license_cipher"] = $this->_enableLicenseCipher;
         }
 
         return $arr;
@@ -157,5 +169,21 @@ class SecurityPolicyPlayReady
     public function setRequireHdcpType1($requireHdcpType1)
     {
         $this->_requireHdcpType1 = $requireHdcpType1;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getEnableLicenseCipher()
+    {
+        return $this->_enableLicenseCipher;
+    }
+
+    /**
+     * @param bool $enableLicenseCipher
+     */
+    public function setEnableLicenseCipher($enableLicenseCipher)
+    {
+        $this->_enableLicenseCipher = $enableLicenseCipher;
     }
 }

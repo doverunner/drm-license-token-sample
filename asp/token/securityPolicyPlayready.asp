@@ -5,6 +5,7 @@ Class SecurityPolicyPlayready
     private m_analogVideoProtectionLevel
     private m_digitalAudioProtectionLevel
     private m_requireHdcpType1
+    private m_enableLicenseCipher
 
     Public Sub SetSecurityLevel(i_securityLevel)
         If Not IsEmpty(i_securityLevel) Then
@@ -76,6 +77,24 @@ Class SecurityPolicyPlayready
         GetRequireHdcpType1 = m_requireHdcpType1
     End Function
 
+    Public Sub SetEnableLicenseCipher(b_enableLicenseCipher)
+        If Not IsEmpty(b_enableLicenseCipher) Then
+            If VarType(b_enableLicenseCipher) = 11 Then
+                m_enableLicenseCipher = b_enableLicenseCipher
+            Else
+                call Err.Raise(1056, "SecurityPolicyPlayready", " The enable_license_cipher should be boolean")
+            End If
+        End If
+    End Sub
+
+    Public Function GetEnableLicenseCipher()
+        If IsEmpty(m_enableLicenseCipher) Then
+            GetEnableLicenseCipher = false
+        Else
+            GetEnableLicenseCipher = m_enableLicenseCipher
+        End If
+    End Function
+
 
     Public Function ToJsonString()
         s_jsonResult = "{"
@@ -109,6 +128,13 @@ Class SecurityPolicyPlayready
             s_jsonResult = s_jsonResult & ","
             End If
             s_jsonResult = s_jsonResult & """require_hdcp_type_1"":" & Lcase(Cstr(m_requireHdcpType1))
+        End If
+
+        If Not IsEmpty(m_enableLicenseCipher) Then
+            If s_jsonResult <> "{" Then
+            s_jsonResult = s_jsonResult & ","
+            End If
+            s_jsonResult = s_jsonResult & """enable_license_cipher"":" & Lcase(Cstr(m_enableLicenseCipher))
         End If
 
         s_jsonResult = s_jsonResult & "}"

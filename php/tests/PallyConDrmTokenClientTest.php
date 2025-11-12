@@ -91,6 +91,10 @@ class PallyConDrmTokenClientTest extends TestCase
         $playbackPolicyRequest = new PlaybackPolicyRequest(true, 0, "2020-01-15T00:00:00Z");
 
         $securityPolicyWidevine = new SecurityPolicyWidevine(5);
+        // $securityPolicyWidevine->setEnableLicenseCipher(true);
+
+        // $securityPolicyPlayReady = new \PallyCon\SecurityPolicyPlayReady(150);
+        // $securityPolicyPlayReady->setEnableLicenseCipher(true);
 
         $securityPolicyReqeust = new SecurityPolicyRequest("ALL", $securityPolicyWidevine);
 

@@ -79,6 +79,7 @@ public class SampleTest {
                 .requiredHdcpVersion(RequiredHdcpVersion.HDCP_NONE)
                 .requiredCgmsFlags(RequiredCgmsFlags.CGMS_NONE)
                 .overrideDeviceRevocation(true);
+                // .enableLicenseCipher(true);
         SecurityPolicyFairplay fairplayForAll = new SecurityPolicyFairplay()
                 .hdcpEnforcement(FairplayHdcpEnforcement.HDCP_NONE)
                 .allowAvAdapter(true)
@@ -88,6 +89,7 @@ public class SampleTest {
                 .analogVideoProtection(AnalogVideoProtection.LEVEL_100)
                 .digitalVideoProtection(DigitalVideoProtection.LEVEL_100)
                 .digitalAudioProtection(DigitalAudioProtection.LEVEL_100);
+                // .enableLicenseCipher(true);
         SecurityPolicyNcg ncgForAll = new SecurityPolicyNcg()
                 .allowMobileAbnormalDevice(true)
                 .allowExternalDisplay(true)

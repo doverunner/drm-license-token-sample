@@ -107,13 +107,14 @@ def set_security_policy():
                   .security_level(1)
                   .required_hdcp_version('HDCP_NONE')
                   .required_cgms_flags('CGMS_NONE')
-                  .override_device_revocation(False)) \
+                  .override_device_revocation(False) \
+                # .enable_license_cipher(False)) \
         .playready(Playready()
                    .security_level(150)
                    .digital_video_protection_level(100)
                    .analog_video_protection_level(100)
-                   .digital_audio_protection_level(100)
-                   ) \
+                   .digital_audio_protection_level(100)) \
+                   # .enable_license_cipher(False)) \
         .fairplay(Fairplay()
                   .hdcp_enforcement(-1)
                   .allow_airplay(True)
@@ -141,7 +142,8 @@ def set_security_policy():
                    .security_level(p_security_level.LEVEL_150)
                    .digital_video_protection_level(digital_video_protection.LEVEL_100)
                    .analog_video_protection_level(analog_video_protection.LEVEL_100)
-                   .digital_audio_protection_level(digital_audio_protection.LEVEL_100)) \
+                   .digital_audio_protection_level(digital_audio_protection.LEVEL_100)
+                   .enable_license_cipher(False)) \
         .fairplay(Fairplay()
                   .hdcp_enforcement(fairplay_hdcp_enforcement.HDCP_NONE)
                   .allow_airplay(True)

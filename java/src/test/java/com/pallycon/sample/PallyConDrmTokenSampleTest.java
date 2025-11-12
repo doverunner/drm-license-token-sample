@@ -71,6 +71,7 @@ public class PallyConDrmTokenSampleTest {
                 .requiredCgmsFlags(RequiredCgmsFlags.CGMS_NONE)
                 .hdcpSrmRule(HdcpSrmRule.HDCP_SRM_RULE_NONE)
                 .overrideDeviceRevocation(true);
+                // .enableLicenseCipher(true);
         SecurityPolicyFairplay fairplayForAll = new SecurityPolicyFairplay()
                 .hdcpEnforcement(FairplayHdcpEnforcement.HDCP_NONE)
                 .allowAvAdapter(true)
@@ -80,6 +81,7 @@ public class PallyConDrmTokenSampleTest {
                 .analogVideoProtection(AnalogVideoProtection.LEVEL_100)
                 .digitalVideoProtection(DigitalVideoProtection.LEVEL_100)
                 .digitalAudioProtection(DigitalAudioProtection.LEVEL_100);
+                // .enableLicenseCipher(true);
 
         SecurityPolicyNcg ncgForAll = new SecurityPolicyNcg()
                 .allowMobileAbnormalDevice(true)

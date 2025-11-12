@@ -32,5 +32,7 @@ return [
     1047=>"ExternalKeyNcg : The Cek should be 32byte hex String",
     1049=>"ExternalKeyNcg : PlaybackPolicy : The rental_duration should be Integer",
     1050=>"PlaybackPolicy : The playback_duration should be Integer",
-    1051=>"PlaybackPolicy : The max_stream_per_user should be Integer"
+    1051=>"PlaybackPolicy : The max_stream_per_user should be Integer",
+    1054=>"SecurityPolicyWidevine : The enable_license_cipher should be boolean",
+    1056=>"SecurityPolicyPlayready : The enable_license_cipher should be boolean"
 ];

@@ -23,6 +23,9 @@ Set encrypter = Server.CreateObject ("Ryeol.StringEncrypter")
 #Include File= "token/pallyConDrmTokenClient.asp" --><!--
 #Include File= "token/policyRequest.asp" --><!--
 #Include File= "token/playbackPolicyRequest.asp" --><!--
+#Include File= "token/securityPolicy.asp" --><!--
+#Include File= "token/securityPolicyWidevine.asp" --><!--
+#Include File= "token/securityPolicyPlayready.asp" --><!--
 #Include File= "token/tokenBuilder.asp" --><!--
 #Include File= "config.asp" --><%
 Dim obj_drmTokenClient, obj_policyRequest
@@ -36,14 +39,37 @@ Set obj_drmTokenClient = new PallyConDrmTokenClient
 Set obj_tokenBuilder = new TokenBuilder
 
 ' Create playback policy rule
-' https://pallycon.com/docs/en/multidrm/license/license-token/#playback-policy 
+' https://pallycon.com/docs/en/multidrm/license/license-token/#playback-policy
 Set obj_playbackPolicyRequest = new PlaybackPolicyRequest
 obj_playbackPolicyRequest.setLimit False
 obj_playbackPolicyRequest.setDuration False
 
+' Create security policy rule (optional)
+' https://pallycon.com/docs/en/multidrm/license/license-token/#security-policy
+set d_securityPolicy = Server.CreateObject("Scripting.Dictionary")
+
+Set obj_securityPolicy = new SecurityPolicy
+
+' Widevine security policy
+Set obj_securityPolicyWidevine = new SecurityPolicyWidevine
+obj_securityPolicyWidevine.SetSecurityLevel 1
+' obj_securityPolicyWidevine.SetEnableLicenseCipher true
+
+' PlayReady security policy
+Set obj_securityPolicyPlayready = new SecurityPolicyPlayready
+obj_securityPolicyPlayready.SetSecurityLevel 150
+' obj_securityPolicyPlayready.SetEnableLicenseCipher true
+
+obj_securityPolicy.setTrackType "ALL"
+obj_securityPolicy.setWidevine obj_securityPolicyWidevine
+obj_securityPolicy.setPlayready obj_securityPolicyPlayready
+
+d_securityPolicy.add Cstr(d_securityPolicy.Count), obj_securityPolicy
+
 ` Build rule
 ` https://pallycon.com/docs/en/multidrm/license/license-token/#token-rule-json
 obj_tokenBuilder.PlaybackPolicy(obj_playbackPolicyRequest)
+obj_tokenBuilder.SecurityPolicy(d_securityPolicy)
 Set obj_policyRequest = obj_tokenBuilder.Build
 
 If Err.Number <> 0 Then

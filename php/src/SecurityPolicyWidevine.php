@@ -167,4 +167,20 @@ class SecurityPolicyWidevine
         $this->_overrideDeviceRevocation = $overrideDeviceRevocation;
     }
 
+    /**
+     * @return bool
+     */
+    public function getEnableLicenseCipher()
+    {
+        return $this->_enableLicenseCipher;
+    }
+
+    /**
+     * @param bool $enableLicenseCipher
+     */
+    public function setEnableLicenseCipher($enableLicenseCipher)
+    {
+        $this->_enableLicenseCipher = $enableLicenseCipher;
+    }
+
   }

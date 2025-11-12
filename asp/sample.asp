@@ -39,8 +39,13 @@ Set obj_securityPolicyWidevine = new SecurityPolicyWidevine
 obj_securityPolicyWidevine.SetRequireHdcpVersion "HDCP_V1"
 ' obj_securityPolicyWidevine.SetEnableLicenseCipher true
 
+' Set obj_securityPolicyPlayready = new SecurityPolicyPlayready
+' obj_securityPolicyPlayready.SetSecurityLevel 150
+' obj_securityPolicyPlayready.SetEnableLicenseCipher true
+
 obj_securityPolicy.setTrackType "HD"
 obj_securityPolicy.setWidevine obj_securityPolicyWidevine
+' obj_securityPolicy.setPlayready obj_securityPolicyPlayready
 
 d_securityPolicy.add Cstr(d_securityPolicy.Count), obj_securityPolicy
 

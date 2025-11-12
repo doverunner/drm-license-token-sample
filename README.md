@@ -1,5 +1,7 @@
 # DRM license token samples for DoveRunner Multi-DRM integration
 
+> **⚠️ DEPRECATED**: This repository is no longer maintained. Please visit the new repository at https://docs.doverunner.com/content-security/multi-drm/getting-started/downloads/#license-token-integration-sample
+
 ## Overview
 This repository provides server-side sample code that can generate license token for DoveRunner multi-DRM service.  DRM license tokens are used to authenticate license requests in multi-DRM integration workflows.
 
@@ -19,3 +21,5 @@ For more details, please check the README.md files inside of each folder for pro
 ## Support
 
 If you have any questions or issues with the token sample, please create a ticket at [DoveRunner Helpdesk](https://pallycon.zendesk.com) website.
+
+

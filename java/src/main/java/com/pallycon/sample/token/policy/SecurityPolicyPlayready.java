@@ -11,7 +11,7 @@ import com.pallycon.sample.token.policy.securityPolicy.playready.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
         {"security_level", "digital_video_protection_level", "analog_video_protection_level",
-        "digital_audio_protection_level", "require_hdcp_type_1"})
+        "digital_audio_protection_level", "require_hdcp_type_1", "enable_license_cipher"})
 public class SecurityPolicyPlayready {
 
     @JsonProperty("security_level")
@@ -28,6 +28,9 @@ public class SecurityPolicyPlayready {
 
     @JsonProperty("require_hdcp_type_1")
     private Boolean requireHdcpType1;
+
+    @JsonProperty("enable_license_cipher")
+    private Boolean enableLicenseCipher = false;
 
     public SecurityPolicyPlayready() {
     }
@@ -57,6 +60,11 @@ public class SecurityPolicyPlayready {
         return this;
     }
 
+    public SecurityPolicyPlayready enableLicenseCipher(Boolean enableLicenseCipher) {
+        this.enableLicenseCipher = enableLicenseCipher;
+        return this;
+    }
+
     public Integer getSecurityLevel() {
         return securityLevel;
     }
@@ -75,5 +83,9 @@ public class SecurityPolicyPlayready {
 
     public Integer getDigitalAudioProtection() {
         return digitalAudioProtection;
+    }
+
+    public Boolean getEnableLicenseCipher() {
+        return enableLicenseCipher;
     }
 }

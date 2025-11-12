@@ -15,6 +15,9 @@ use PallyCon\Exception\PallyConTokenException;
 use PallyCon\PallyConDrmTokenClient;
 use PallyCon\TokenBuilder;
 use PallyCon\PlaybackPolicyRequest;
+use PallyCon\SecurityPolicyRequest;
+use PallyCon\SecurityPolicyWidevine;
+use PallyCon\SecurityPolicyPlayReady;
 
 $config = include "config/config.php";
 
@@ -27,17 +30,27 @@ try{
     
     //persistent : true / duration : 600
     $playbackPolicyRequest = new PlaybackPolicyRequest(true, 600);
-    
-    //SecurityPolicy: SecurityPolicyRequest.php
-    //$securityPolicyRequest = new SecurityPolicyRequest("ALL");
-    
+
+    /* Create security policy rule (optional) */
+    // https://pallycon.com/docs/en/multidrm/license/license-token/#security-policy
+
+    // Widevine security policy
+    $securityPolicyWidevine = new SecurityPolicyWidevine(1); // security_level
+    // $securityPolicyWidevine->setEnableLicenseCipher(true);
+
+    // PlayReady security policy
+    $securityPolicyPlayReady = new SecurityPolicyPlayReady(150); // security_level
+    // $securityPolicyPlayReady->setEnableLicenseCipher(true);
+
+    $securityPolicyRequest = new SecurityPolicyRequest("ALL", $securityPolicyWidevine, $securityPolicyPlayReady);
+
     //ExternalKey: ExternalkeyRequest.php
     
     /* Build rule */
     //https://pallycon.com/docs/en/multidrm/license/license-token/#token-rule-json
     $policyRequest = (new TokenBuilder)
         ->playbackPolicy($playbackPolicyRequest)
-    //->securityPolicy($securityPolicyRequest)
+        ->securityPolicy(array($securityPolicyRequest))
         ->build();
     
     /* Create token */

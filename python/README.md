@@ -134,8 +134,8 @@ and figure out which specification to use.
                        .security_level(150)
                        .digital_video_protection_level(100)
                        .analog_video_protection_level(100)
-                       .digital_audio_protection_level(100)
-                       ) \
+                       .digital_audio_protection_level(100)) \
+                       # .enable_license_cipher(False)) \
             .fairplay(Fairplay()
                       .hdcp_enforcement(-1)
                       .allow_airplay(True)
@@ -301,8 +301,9 @@ We hope this instruction would be helpful to generate DRM License Token to reque
 | 1051       | SecurityPolicyWidevine: The override_device_revocation should be Boolean |
 | 1052       | ExternalKeyHlsAes : The key_id should be 16byte hex String |
 | 1053       | PlaybackPolicy : The max_stream_per_user should be Integer |
-| 1054       | SecurityPolicyWidevine : The enable_license_cipher should be Boolean |
+| 1054       | SecurityPolicyWidevine: The enable_license_cipher should be Boolean |
 | 1055       | Token err : The key_rotation should be Boolean |
+| 1056       | SecurityPolicyPlayready: The enable_license_cipher should be Boolean |
 
 
 
